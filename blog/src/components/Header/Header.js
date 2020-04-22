@@ -2,7 +2,10 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from 'styled-components'
+import { Search } from 'styled-icons/feather'
 import { H1 } from '../Heading'
+import { IconButton } from '../Button'
+import { Section} from '../Section'
 
 const Outer = styled.header`
   background: ${props => props.theme.header.backgroundColor};
@@ -25,11 +28,18 @@ const StyledLink = styled(Link)`
 const Header = ({ siteTitle }) => (
   <Outer>
     <Inner>
-      <H1>
-        <StyledLink to="/">
-          {siteTitle}
-        </StyledLink>
-      </H1>
+      <Section flex>
+        <Section width={11/12}>
+          <H1>
+            <StyledLink to="/">
+              {siteTitle}
+            </StyledLink>
+          </H1>
+        </Section>
+        <Section width={1/12}>
+          <IconButton icon={<Search />} />
+        </Section>
+      </Section>
     </Inner>
   </Outer>
 )
